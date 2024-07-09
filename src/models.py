@@ -68,6 +68,7 @@ D_cc = np.zeros((1, 1))
 
 sys_cc = ctrl.StateSpace(A_cc, B_cc, C_cc, D_cc)
 
+# Dictionary of systems
 sys_variables = {
     'RC': sys_rc,
     'F1': sys_f1,
