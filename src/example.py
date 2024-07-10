@@ -17,10 +17,13 @@ print(f"Original system:\n{sys}\n")
 print(f"Augmented system:\n{sys_delay}\n")
 print(f"Controller gain:\n{K}\n")
 
+# The initial state vector is [1, 1, 0], where the first two elements are the
+# original state vector and the third element is the delayed control input.
 x0 = np.asarray([1, 1])
 u0 = np.asarray([0])
 z = [np.concatenate((x0, u0))]
 
+# Simulate the system for 100 time steps
 for i in range(100):
     u = -K @ z[-1]
     z.append(sys_delay.A @ z[-1] + sys_delay.B @ u)
