@@ -16,3 +16,13 @@ K = delay_lqr(sys, 0.1)
 print(f"Original system:\n{sys}\n")
 print(f"Augmented system:\n{sys_delay}\n")
 print(f"Controller gain:\n{K}\n")
+
+x0 = np.asarray([1, 1])
+u0 = np.asarray([0])
+z = [np.concatenate((x0, u0))]
+
+for i in range(100):
+    u = -K @ z[-1]
+    z.append(sys_delay.A @ z[-1] + sys_delay.B @ u)
+
+print(f"Nominal trajectory:\n{z}\n")
