@@ -1,0 +1,18 @@
+[project]
+name = "controlbenchmarks"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Shengjie Xu", email = "shengjiex98@gmail.com"},
+]
+dependencies = [
+    "numpy>=2.1.2",
+    "control>=0.10.1",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
