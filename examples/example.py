@@ -1,8 +1,8 @@
 import numpy as np
 import control as ctrl
 
-from models import sys_variables
-from controllers import delay_lqr, augment
+from controlbenchmarks.models import sys_variables
+from controlbenchmarks.controllers import delay_lqr, augment
 
 # F1-tenth car system
 sys = sys_variables['F1']
