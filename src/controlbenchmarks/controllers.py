@@ -22,9 +22,9 @@ def pole_place(dsys_augmented: ctrl.StateSpace, pole: float = 0.9):
 
 def augment(dsys: ctrl.StateSpace):
     """Augment a discrete-time state-space model with a one-period control delay."""
-    p = dsys.A.shape[0]
-    q = dsys.B.shape[1]
-    r = dsys.C.shape[0]
+    p = dsys.nstates
+    q = dsys.ninputs
+    r = dsys.noutputs
     A = np.block([[dsys.A, dsys.B], [np.zeros((q, p + q))]])
     B = np.block([[np.zeros((p, q))], [np.eye(q)]])
     C = np.block([dsys.C, np.zeros((r, q))])
